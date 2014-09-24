@@ -8,6 +8,10 @@ add_theme_support('soil-nice-search');      // Enable /?s= to /search/ redirect 
 add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails component on [gallery]
 add_theme_support('jquery-cdn');            // Enable to load jQuery from the Google CDN
 
+add_theme_support('custom-header-uploads');
+add_theme_support('custom-background');
+
+
 /**
  * Configuration values
  */
@@ -45,18 +49,18 @@ function roots_display_sidebar() {
      *
      * The second element must be an array even if there's only 1 argument.
      */
-    array(
-      'is_404',
-      'is_front_page'
-    ),
-    /**
-     * Page template checks (via is_page_template())
-     * Any of these page templates that return true won't show the sidebar
-     */
-    array(
-      'template-custom.php'
-    )
-  );
+        array(
+            'is_404',
+            //'is_front_page'
+        ),
+        /**
+         * Page template checks (via is_page_template())
+         * Any of these page templates that return true won't show the sidebar
+         */
+        array(
+            'template-full-width.php'
+        )
+    );
 
   return apply_filters('roots/display_sidebar', $sidebar_config->display);
 }

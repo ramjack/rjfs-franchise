@@ -34,9 +34,12 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
       $item_html = preg_replace('/<a[^>]*>(.*)<\/a>/iU', '$1', $item_html);
     }
 
-    $item_html = apply_filters('roots/wp_nav_menu_item', $item_html);
-    $output .= $item_html;
-  }
+        $slug = sanitize_title($item->title);
+        $item_html = str_replace('<a', '<a id="' . $slug . '"', $item_html);
+
+        $item_html = apply_filters('roots/wp_nav_menu_item', $item_html);
+        $output .= $item_html;
+    }
 
   function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output) {
     $element->is_dropdown = ((!empty($children_elements[$element->ID]) && (($depth + 1) < $max_depth || ($max_depth === 0))));

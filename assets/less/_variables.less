@@ -1,17 +1,51 @@
 // Grid settings
 // -------------------------
 
-@main-sm-columns:       @grid-columns;
-@sidebar-sm-columns:    4;
-
+@main-sm-columns: @grid-columns;
+@sidebar-sm-columns: 4;
 
 // Brand colors
 // -------------------------
 
-@brand-primary:         #27ae60;
-
+@brand-primary: #27ae60;
 
 // Glyphicons path
 // -------------------------
 
-@icon-font-path:        "../vendor/bootstrap/fonts/";
+@icon-font-path: "../vendor/bootstrap/fonts/";
+
+// Fonts
+// -------------------------
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+@font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif: "Open Sans", Georgia, "Times New Roman", Times, serif;
+
+// Bootstrap Container
+// -------------------------
+// @screen-lg: 955px;
+// Large screen / wide desktop
+@container-large-desktop: ((955px + @grid-gutter-width));
+//** For `@screen-lg-min` and up.
+@container-lg: @container-large-desktop;
+
+// RJFS
+// -------------------------
+
+// Brand colors
+@rjfs-red: #e50007;
+@brand-primary: @rjfs-red;
+
+// Font Awesome Icons
+@import "../vendor/fontawesome/less/variables.less";
+@fa-font-path: "../vendor/fontawesome/fonts";
+@import "../vendor/fontawesome/less/mixins.less";
+@import "../vendor/fontawesome/less/path.less";
+@import "../vendor/fontawesome/less/core.less";
+@import "../vendor/fontawesome/less/larger.less";
+@import "../vendor/fontawesome/less/fixed-width.less";
+@import "../vendor/fontawesome/less/list.less";
+@import "../vendor/fontawesome/less/bordered-pulled.less";
+@import "../vendor/fontawesome/less/spinning.less";
+@import "../vendor/fontawesome/less/rotated-flipped.less";
+@import "../vendor/fontawesome/less/stacked.less";
+@import "../vendor/fontawesome/less/icons.less";
