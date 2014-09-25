@@ -13,9 +13,9 @@
                     <span class="label label-top-nav hidden-xs">
                         <span class="glyphicon glyphicon-time"></span> Call Us Today!</span>
 
-                    <a class="navbar-brand" href="tel:<?php echo get_theme_mod("rjfs_phone"); ?>">
+                    <a class="navbar-brand" href="tel:<?php echo get_theme_mod("rjfs_phone", "NOT SET"); ?>">
                         <span class="phone-number black">
-                            <?php echo get_theme_mod("rjfs_phone"); ?>
+                            <?php echo get_theme_mod("rjfs_phone", "NOT SET"); ?>
                         </span>
                     </a>
                 </div>
@@ -42,8 +42,9 @@
                     </a>
                 </div>
                 <div class="col-sm-8 hidden-xs text-right">
-                    <h3><?php echo html_entity_decode(get_theme_mod('rjfs_header_caption'), ENT_QUOTES); ?><br/>
-                        <small><?php echo html_entity_decode(get_theme_mod('rjfs_header_desc'), ENT_QUOTES); ?></small>
+                    <h3><?php echo html_entity_decode(get_theme_mod('rjfs_header_caption', "NOT SET"), ENT_QUOTES); ?>
+                        <br/>
+                        <small><?php echo html_entity_decode(get_theme_mod('rjfs_header_desc', "NOT SET"), ENT_QUOTES); ?></small>
                     </h3>
                 </div>
             </div>

@@ -262,6 +262,19 @@ function example_customizer($wp_customize)
         )
     );
 
+    $default = get_template_directory_uri() . '/assets/img/page-break.jpg';
+    $wp_customize->add_setting('rjfs_page_break', array(
+            'default' => $default
+        )
+    );
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'rjfs_page_break', array(
+                'label' => __('Page Break', 'rjfs_page_break'),
+                'section' => 'rjfs_franchise_config',
+                'settings' => 'rjfs_page_break',
+            )
+        )
+    );
+
     // Phone number
     $wp_customize->add_setting(
         'rjfs_phone',
@@ -312,3 +325,12 @@ function example_customizer($wp_customize)
 }
 
 add_action('customize_register', 'example_customizer');
+
+
+// Short codes
+function phone_number_func()
+{
+    return get_theme_mod('rjfs_phone');
+}
+
+add_shortcode('phone-number', 'phone_number_func');

@@ -1,17 +1,17 @@
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php wp_title('|', true, 'right'); ?></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><?php wp_title('|', true, 'right'); ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php
     wp_head();
 
-    $parallax = of_get_option('parallax');
+    $page_break = get_theme_mod('rjfs_page_break');
     $theme_url = get_template_directory_uri();
-    if(!empty($parallax)){
+    if (!empty($page_break)) {
         $style = <<<EOF
 
         <style>
@@ -19,7 +19,7 @@
             position: relative;
         }
         .content-info .footer-top {
-            background-image: url("$parallax");
+            background-image: url("$page_break");
             background-repeat: no-repeat;
 	        background-position: center center;
             -webkit-background-size: cover;
