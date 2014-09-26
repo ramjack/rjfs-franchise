@@ -234,7 +234,6 @@ function my_theme_register_required_plugins()
  */
 function example_customizer($wp_customize)
 {
-
     // set up defaults
     $wp_customize->get_setting('header_textcolor')->default = '#000000';
     $wp_customize->get_setting('background_color')->default = '#ffffff';
