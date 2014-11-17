@@ -61,37 +61,49 @@
                 <div class="front-page-carousel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                <!-- Wrapper for slides -->
-                                <div class="carousel-inner">
 
-                                    <?php
-                                    $teasers = new WP_Query(array('post_type' => 'teaser'));
-                                    $idx = 0;
-                                    while ($teasers->have_posts()) :
-                                        $teasers->the_post();
-                                        $url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
-                                        ?>
-                                        <div class="item <?php echo ($idx == 0) ? "active" : "" ?>">
-                                            <img src="<?php echo $url; ?>">
+                            <?php if (get_theme_mod('rjfs_header_use_revolution_slider', false)) : ?>
+                                <?php if (is_plugin_active('revslider/revslider.php')) : ?>
+                                    <div class="carousel slide">
+                                        <?php putRevSlider("homepage") ?>
+                                    </div>
+                                <?php else : ?>
+                                    <h1>Revolution Slider not istalled or activated.</h1>
+                                <?php endif; ?>
 
-                                            <div class="carousel-caption">
-                                                <h3><?php the_title(); ?></h3>
+                            <?php else : ?>
 
-                                                <div class="hidden-xs"><?php the_excerpt(); ?></div>
-                                                <a href="<?php echo get_permalink($post->ID); ?>"
-                                                   class="btn btn-danger hidden-xs">Learn More</a>
-                                            </div>
-                                        </div>
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+
                                         <?php
-                                        $idx++;
-                                    endwhile;
-                                    wp_reset_query();
-                                    ?>
+                                        $teasers = new WP_Query(array('post_type' => 'teaser'));
+                                        $idx = 0;
+                                        while ($teasers->have_posts()) :
+                                            $teasers->the_post();
+                                            $url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
+                                            ?>
+                                            <div class="item <?php echo ($idx == 0) ? "active" : "" ?>">
+                                                <img src="<?php echo $url; ?>">
 
+                                                <div class="carousel-caption">
+                                                    <h3><?php the_title(); ?></h3>
+
+                                                    <div class="hidden-xs"><?php the_excerpt(); ?></div>
+                                                    <a href="<?php echo get_permalink($post->ID); ?>"
+                                                       class="btn btn-danger hidden-xs">Learn More</a>
+                                                </div>
+                                            </div>
+                                            <?php
+                                            $idx++;
+                                        endwhile;
+                                        wp_reset_query();
+                                        ?>
+
+                                    </div>
                                 </div>
-
-                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

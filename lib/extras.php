@@ -52,6 +52,7 @@ function rjfs_post_type_teasers()
         'not_found' => __('Not found', 'text_domain'),
         'not_found_in_trash' => __('Not found in Trash', 'text_domain'),
     );
+
     $args = array(
         'label' => __('teaser', 'text_domain'),
         'description' => __('These are what you see in the carousel on the front page.', 'text_domain'),
@@ -316,9 +317,25 @@ function example_customizer($wp_customize)
     $wp_customize->add_control(
         'rjfs_header_desc',
         array(
-            'label' => 'Header Caption',
+            'label' => 'Header Description',
             'section' => 'rjfs_franchise_config',
             'type' => 'text',
+        )
+    );
+
+    // Header Caption
+    $wp_customize->add_setting(
+        'rjfs_header_use_revolution_slider',
+        array(
+            'default' => false,
+        )
+    );
+    $wp_customize->add_control(
+        'rjfs_header_use_revolution_slider',
+        array(
+            'label' => 'Use Revolution Slider',
+            'section' => 'rjfs_franchise_config',
+            'type' => 'checkbox',
         )
     );
 }
