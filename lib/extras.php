@@ -350,3 +350,65 @@ function phone_number_func()
 }
 
 add_shortcode('phone-number', 'phone_number_func');
+
+
+/**
+ * Yoast Breadcrumbs on Twitter Bootstrap
+ *
+ * @author Novrian <me@novrian.info>
+ * @copyright (c) 2013. Novrian Y.F.
+ * @license MIT License
+ * @param string $sep Your custom separator
+ */
+function novrian_breadcrumbs($sep = '/')
+{
+    if (!function_exists('yoast_breadcrumb')) {
+        return null;
+    }
+
+    // Default Yoast Breadcrumbs Separator
+    //$old_sep = '\&raquo\;';
+    $old_sep = '»';
+
+    // Get the crumbs
+    $crumbs = yoast_breadcrumb(null, null, false);
+
+    // Hilangkan wrapper <span xmlns:v />
+    $output = preg_replace("/^\<span xmlns\:v=\"http\:\/\/rdf\.data\-vocabulary\.org\/#\"\>/", "", $crumbs);
+    $output = preg_replace("/\<\/span\>$/", "", $output);
+
+    // Ambil Crumbs
+    $crumb = preg_split("/\40(" . $old_sep . ")\40/", $output);
+
+    // Manipulasi string output tiap crumbs
+    $crumb = array_map(
+        create_function('$crumb', '
+      if (preg_match(\'/\<span\40class=\"breadcrumb_last\"/\', $crumb)) {
+        return \'<li class="active">\' . $crumb . \'</li>\';
+      }
+      return \'<li>\' . $crumb . \'</li>\';
+      '),
+        $crumb
+    );
+
+    // Bangun output HTML
+    $output = '<nav class="breadcrumbs-container hidden-xs " xmlns:v="http://rdf.data-vocabulary.org/#"\><ul class="breadcrumb">' . implode("", $crumb) . '</ul></nav>';
+
+    // Print
+    echo $output;
+}
+
+/**
+ * Checks to see if we actually have anything to display for breadcrumbs
+ */
+function is_breadcrumbs_enabled()
+{
+    if (function_exists('yoast_breadcrumb')) {
+        // Get the crumbs
+        $crumbs = yoast_breadcrumb(null, null, false);
+
+        return ($crumbs != null);
+    }
+
+    return false;
+}
