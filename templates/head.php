@@ -60,4 +60,9 @@ EOF;
 
     <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed"
           href="<?php echo home_url(); ?>/feed/">
+
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" href="<?php echo $theme_url ?>/assets/img/apple-touch-icon.png">
+    <link rel="icon" href="<?php echo $theme_url ?>/assets/img/favicon.ico">
 </head>
