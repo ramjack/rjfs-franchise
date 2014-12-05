@@ -338,6 +338,22 @@ function example_customizer($wp_customize)
             'type' => 'checkbox',
         )
     );
+
+    // Full Width Front Page
+    $wp_customize->add_setting(
+        'rjfs_full_width_header',
+        array(
+            'default' => false,
+        )
+    );
+    $wp_customize->add_control(
+        'rjfs_full_width_header',
+        array(
+            'label' => 'Full Width Front Page',
+            'section' => 'rjfs_franchise_config',
+            'type' => 'checkbox',
+        )
+    );
 }
 
 add_action('customize_register', 'example_customizer');

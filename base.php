@@ -10,7 +10,12 @@
 
 <?php
 do_action('get_header');
-get_template_part('templates/header');
+// check to see if we have a full width header or not
+if (get_theme_mod('rjfs_full_width_header', false)) {
+    get_template_part('templates/header', 'fullwidth');
+} else {
+    get_template_part('templates/header');
+}
 ?>
 
 <div class="wrap container" role="document">
