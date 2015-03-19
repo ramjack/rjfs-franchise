@@ -50,6 +50,16 @@
                 </div>
             </div>
         </div>
+
+        <?php
+        if (has_nav_menu('service_areas_navigation')) { ?>
+            <div class="navbar-service-area hidden-xs ">
+                <div class="service-area">
+                    <?php wp_nav_menu(array('theme_location' => 'service_areas_navigation', 'menu_class' => 'nav navbar-nav')); ?>
+                </div>
+            </div>
+        <?php } ?>
+
         <div class="navbar-header-nav">
             <div class="bg-primary">
                 <div class="container">
