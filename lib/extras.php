@@ -354,6 +354,22 @@ function example_customizer($wp_customize)
             'type' => 'checkbox',
         )
     );
+
+    // Service Area Title
+    $wp_customize->add_setting(
+        'rjfs_service_area_title',
+        array(
+            'default' => 'Service Areas',
+        )
+    );
+    $wp_customize->add_control(
+        'rjfs_service_area_title',
+        array(
+            'label' => 'Service Area Nav Title',
+            'section' => 'rjfs_franchise_config',
+            'type' => 'text',
+        )
+    );
 }
 
 add_action('customize_register', 'example_customizer');

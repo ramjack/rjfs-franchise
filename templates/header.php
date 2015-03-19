@@ -54,7 +54,7 @@
         if (has_nav_menu('service_areas_navigation')) { ?>
             <div class="navbar-service-area hidden-xs ">
                 <div class="service-area">
-                    <?php wp_nav_menu(array('theme_location' => 'service_areas_navigation', 'menu_class' => 'nav navbar-nav')); ?>
+                    <span class="title"><?php echo html_entity_decode(get_theme_mod('rjfs_service_area_title', "NOT SET"), ENT_QUOTES); ?></span><?php wp_nav_menu(array('theme_location' => 'service_areas_navigation', 'menu_class' => 'nav navbar-nav')); ?>
                 </div>
             </div>
         <?php } ?>
