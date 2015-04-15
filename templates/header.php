@@ -54,7 +54,8 @@
         if (has_nav_menu('service_areas_navigation')) { ?>
             <div class="navbar-service-area hidden-xs ">
                 <div class="service-area">
-                    <span class="title"><?php echo html_entity_decode(get_theme_mod('rjfs_service_area_title', "NOT SET"), ENT_QUOTES); ?></span><?php wp_nav_menu(array('theme_location' => 'service_areas_navigation', 'menu_class' => 'nav navbar-nav')); ?>
+                    <span
+                        class="title"><?php echo html_entity_decode(get_theme_mod('rjfs_service_area_title', "NOT SET"), ENT_QUOTES); ?></span><?php wp_nav_menu(array('theme_location' => 'service_areas_navigation', 'menu_class' => 'nav navbar-nav')); ?>
                 </div>
             </div>
         <?php } ?>
@@ -118,19 +119,21 @@
                     </div>
                 </div>
 
+                <div class="row nav-widgets mt15">
+                    <div class="col-lg-4 col-md-4 col-sm-4 mb15">
+                        <?php dynamic_sidebar('nav-left'); ?>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 mb15">
+                        <?php dynamic_sidebar('nav-middle'); ?>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 mb15">
+                        <?php dynamic_sidebar('nav-right'); ?>
+                    </div>
+                </div>
+
             <?php } ?>
 
-            <div class="row nav-widgets mt15">
-                <div class="col-lg-4 col-md-4 col-sm-4 mb15">
-                    <?php dynamic_sidebar('nav-left'); ?>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 mb15">
-                    <?php dynamic_sidebar('nav-middle'); ?>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 mb15">
-                    <?php dynamic_sidebar('nav-right'); ?>
-                </div>
-            </div>
+
         </div>
     </div>
 </header>

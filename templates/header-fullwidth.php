@@ -123,9 +123,6 @@
                     </div>
                 </div>
 
-            <?php } ?>
-
-            <div class="container">
                 <div class="row nav-widgets mt15">
                     <div class="col-lg-4 col-md-4 col-sm-4 mb15">
                         <?php dynamic_sidebar('nav-left'); ?>
@@ -137,7 +134,8 @@
                         <?php dynamic_sidebar('nav-right'); ?>
                     </div>
                 </div>
-            </div>
+
+            <?php } ?>
         </div>
     </div>
 </header>
